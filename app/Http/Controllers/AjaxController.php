@@ -38,9 +38,11 @@ class AjaxController extends Controller
 
     public function show(Request $req)
     {
-        $user = User::where('username', 'like', '%' . $req->input . '%')
-            ->orWhere('name', 'like', '%' . $req->input . '%')
-            ->get();
+        if ($req->input !== null) {
+            $user = User::where('username', 'like', '%' . $req->input . '%')
+                ->orWhere('name', 'like', '%' . $req->input . '%')
+                ->get();
+        }
         return response()->json($user, 200);
     }
 }

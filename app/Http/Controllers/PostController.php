@@ -41,4 +41,15 @@ class PostController extends Controller
         $post = Post::with('images', 'user', 'comments.user')->findOrFail($post);
         return view('Pages.detail', compact('post'));
     }
+
+    public function destroy(Request $req)
+    {
+        return response()->json(Post::find($req->id)->delete(), 200);
+    }
+
+    // public function edit(Post $post)
+    // {
+    //     $this->authorize('edit', $post->user);
+    //     return $post;
+    // }
 }

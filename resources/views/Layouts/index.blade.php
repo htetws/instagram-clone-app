@@ -240,6 +240,38 @@
             });
 
         })
+
+        $('.deletePost').click(function() {
+            $parent = $(this).parents('.border');
+            $id = $parent.find('#postID').val();
+
+            if ($id) {
+                if (confirm('Are you sure want to remove this post ?')) {
+                    $.post("{{route('ajax.delete')}}", {
+                        'id': $id,
+                        _token: "{{ csrf_token() }}"
+                    }, (res) => {
+                        setTimeout(() => {
+                            $parent.remove();
+                            toastr.options = {
+                                "closeButton": true,
+                                "timeOut": "1000",
+                            }
+                            toastr.remove();
+                            toastr.success(res ? 'removed successfully.' : 'error occured');
+                        }, 2500)
+                        toastr.options = {
+                            "closeButton": true,
+                            "progressBar": true,
+                            "timeOut": "2500",
+                        }
+                        toastr.info(`removing...`);
+                    });
+                }
+            }
+
+        })
+
     })
 </script>
 

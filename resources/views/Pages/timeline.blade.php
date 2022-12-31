@@ -1,7 +1,7 @@
 @forelse ($posts as $post)
 <div class="border col-12 col-lg-9 mx-auto rounded-4 mt-md-2 mb-4 mb-md-2">
 
-    <div class="d-flex justify-content-between align-items-center p-2 mx-2">
+    <div class="d-flex justify-content-between align-items-start p-2 mx-2">
         <div class="d-flex align-items-center">
             <img id="avatar" src="{{ $post->user->getAvatar() }}" width="45" height="45" class="rounded-circle" alt="user_profile">
             <div class="Text ms-3 ms-md-4">
@@ -10,12 +10,7 @@
             </div>
         </div>
 
-        <div class="">
-            <form action="#" method="POST" class="m-auto">
-                @csrf
-                <button type="button" class="border-0 bg-transparent text-black fw-bolder fs-6">. . .</button>
-            </form>
-        </div>
+        @include('Components.dropdown')
     </div>
 
     @include('Components.carousel',['post'=>$post])

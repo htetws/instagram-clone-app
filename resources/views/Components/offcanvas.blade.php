@@ -8,6 +8,10 @@
             <input id="search" type="search" placeholder="Search" class="form-control rounded-4 bg-light">
         </div>
         <hr class="fw-bold fs-3 mt-5">
-        <div class="p-3 SearchUser"></div>
+        <div class="p-3 SearchUser">
+            <div class="d-flex mt-5 p-3 fw-bold justify-content-center">
+                <img src="{{asset('images/undraw_people_search_re_5rre.svg')}}" style="width:40%;">
+            </div>
+        </div>
     </div>
 </div>
