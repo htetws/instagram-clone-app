@@ -4,10 +4,11 @@
         <li><a class="dropdown-item" href="{{ route('post.detail',$post->id) }}">Go to post</a></li>
 
         @can('edit',$post->user)
-        <!-- <li><a class="dropdown-item" href="{{ route('post.edit',$post->id) }}">Edit post</a></li> -->
+        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#postEdit">Edit post</a></li>
         <div class="dropdown-divider"></div>
         <li><button class="dropdown-item deletePost" data-id="{{ $post->id }}">Delete post</button></li>
         @endcan
-
     </ul>
 </div>
+
+@include('Components.edit',['post'=>$post])

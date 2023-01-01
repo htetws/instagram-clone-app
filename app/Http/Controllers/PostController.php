@@ -47,9 +47,11 @@ class PostController extends Controller
         return response()->json(Post::find($req->id)->delete(), 200);
     }
 
-    // public function edit(Post $post)
-    // {
-    //     $this->authorize('edit', $post->user);
-    //     return $post;
-    // }
+    public function edit(Post $post)
+    {
+        $this->authorize('edit', $post->user);
+        $post->caption = request('caption_edit');
+        $post->save();
+        return back();
+    }
 }

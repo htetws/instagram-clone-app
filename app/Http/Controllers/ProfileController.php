@@ -24,6 +24,7 @@ class ProfileController extends Controller
 
         if (request('avatar') !== null) {
             $imgName = uniqid() . 'profile' . request('avatar')->getClientOriginalName();
+            $imgName = str_replace(' ', '-', $imgName);
             if ($user->avatar !== null) {
                 Storage::delete('public/' . $user->avatar);
             }

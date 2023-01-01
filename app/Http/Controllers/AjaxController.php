@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Image;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AjaxController extends Controller
 {
@@ -44,5 +46,13 @@ class AjaxController extends Controller
                 ->get();
         }
         return response()->json($user, 200);
+    }
+
+    public function destroy_img(Request $req)
+    {
+        $imgName = Image::findOrFail($req->id);
+        Image::findOrFail($req->id)->delete();
+        if ($imgName) Storage::delete('public/' . $imgName->images);
+        return response()->json('deleted', 200);
     }
 }

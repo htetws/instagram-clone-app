@@ -1,15 +1,14 @@
-<div id="{{ Str::words($post->caption,1,'And') }}{{ str_replace(' ','-',$post->user->name) }}" class="carousel slide" data-bs-interval="false">
+<div id="{{ Str::words($post->caption,1,'And') }}{{ $post->id }}{{ str_replace('@','-',$post->user->username) }}" class="carousel slide" data-bs-interval="false">
 
     <div class="carousel-indicators">
         @foreach ($post->images as $key => $image)
 
-        <button type="button" data-bs-target="#{{ Str::words($post->caption,1,'And') }}{{ str_replace(' ','-',$post->user->name) }}" data-bs-slide-to="{{ $key }}" class="{{ $key !== 0 ?: 'active' }}"></button>
+        <button type="button" data-bs-target="#{{ Str::words($post->caption,1,'And') }}{{ $post->id }}{{ str_replace('@','-',$post->user->username) }}" data-bs-slide-to="{{ $key }}" class="{{ $key !== 0 ?: 'active' }}"></button>
 
         @endforeach
 
     </div>
 
-    <!-- {{ Str::words($post->caption,1,'And') }}{{ str_replace(' ','-',$post->user->name) }} -->
 
     <div class="carousel-inner">
         @foreach ($post->images as $key => $image)
@@ -21,12 +20,12 @@
         @endforeach
     </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#{{ Str::words($post->caption,1,'And') }}{{ str_replace(' ','-',$post->user->name) }}" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#{{ Str::words($post->caption,1,'And') }}{{ $post->id }}{{ str_replace('@','-',$post->user->username) }}" data-bs-slide="prev">
         <i class="fa-solid fa-circle-chevron-left fs-4 me-4"></i>
         <span class="visually-hidden">Previous</span>
     </button>
 
-    <button class="carousel-control-next" type="button" data-bs-target="#{{ Str::words($post->caption,1,'And') }}{{ str_replace(' ','-',$post->user->name) }}" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#{{ Str::words($post->caption,1,'And') }}{{ $post->id }}{{ str_replace('@','-',$post->user->username) }}" data-bs-slide="next">
         <i class="fa-solid fa-circle-chevron-right fs-4 ms-4"></i>
         <span class="visually-hidden">Next</span>
     </button>

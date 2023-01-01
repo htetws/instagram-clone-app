@@ -118,6 +118,8 @@
 
                         $avatar = cmt.user.avatar != null ? `{{ asset('storage/${cmt.user.avatar}') }}` : `https://i.pravatar.cc/150?u=${cmt.user.email}`;
 
+                        console.log($avatar);
+
                         $cmts += `<div class="d-flex ms-2 mb-4 justify-content-between" id="cmtDiv">
                             <div class="d-flex">
                             <img src=${$avatar} class="rounded-circle" width="45" height="45" style="object-fit: cover;">
@@ -272,6 +274,17 @@
 
         })
 
+        $('.imageDel').click(function() {
+            $parent = $(this).parents('.caro-div');
+            $id = $parent.find('.imageID').val();
+            $parent.hide();
+            $.post("{{ route('img.del') }}", {
+                "id": $id,
+                _token: "{{ csrf_token() }}"
+            }, (res) => {
+                toastr.success(res)
+            })
+        })
     })
 </script>
 

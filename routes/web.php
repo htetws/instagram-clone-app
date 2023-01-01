@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/{user:username}', [ProfileController::class, 'show'])->name('profile');
 
     Route::get('/p/{post:id}', [PostController::class, 'show'])->name('post.detail');
-    Route::get('/p/edit/{post:id}', [PostController::class, 'edit'])->name('post.edit');
+    Route::post('/p/edit/{post:id}', [PostController::class, 'edit'])->name('post.edit');
     Route::post('/p/delete', [PostController::class, 'destroy'])->name('ajax.delete');
     Route::post('create', [PostController::class, 'store'])->name('create');
 
@@ -40,4 +40,6 @@ Route::middleware('auth')->group(function () {
     Route::post('detail/cmts', [AjaxController::class, 'cmt_store'])->name('detail.cmts');
     Route::post('detail/follow', [AjaxController::class, 'follow_store'])->name('detail.follow');
     Route::post('search', [AjaxController::class, 'show'])->name('search');
+
+    Route::post('img/del', [AjaxController::class, 'destroy_img'])->name('img.del');
 });

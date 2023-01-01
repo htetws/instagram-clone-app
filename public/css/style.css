@@ -325,3 +325,11 @@ textarea:focus {
         transform: scale(1);
     }
 }
+
+.carousel_img_edit {
+    height: 30rem;
+}
+.imageDel {
+    position: absolute;
+    top: 10px;
+}
