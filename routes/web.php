@@ -15,6 +15,9 @@ use App\Http\Controllers\SaveController;
 Route::group(['middleware' => 'auth.prevent'], function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::get('register', [AuthController::class, 'register'])->name('register');
+
+    Route::get('login/google', [AuthController::class, 'redirectToGoogle'])->name('login#google');
+    Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 });
 
 Route::middleware('auth')->group(function () {

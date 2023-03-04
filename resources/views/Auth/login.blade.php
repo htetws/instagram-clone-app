@@ -41,13 +41,7 @@
             <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">Register</a>
+            <a class="nav-link" href="{{ route('register') }}">Register</a>
         </li>
     </ul>
 </div>
@@ -87,7 +81,7 @@
                     </div>
 
                     <div class="bg-light col-12 d-md-flex justify-content-between">
-                        <a href="" class="btn btn-danger mt-4 rounded-0"><i class="fa-brands fa-google me-4 me-md-3"></i>Login with google</a>
+                        <a href="{{ route('login#google') }}" class="btn btn-danger mt-4 rounded-0"><i class="fa-brands fa-google me-4 me-md-3"></i>Login with google</a>
                         <a href="" class="btn btn-secondary mt-4 rounded-0"><i class="fa-brands fa-github me-4 me-md-3"></i>Login with github</a>
                     </div>
                 </form>
